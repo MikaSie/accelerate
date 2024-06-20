@@ -1244,6 +1244,9 @@ class FullyShardedDataParallelPlugin:
                     "FSDP_TRANSFORMER_CLS_TO_WRAP", default_transformer_cls_names_to_wrap
                 ).split(",")
                 transformer_cls_to_wrap = set()
+                print(f'transformer_cls_names_to_wrap: {transformer_cls_names_to_wrap}')
+                print(f"Model: {model}")
+                 
                 for layer_class in transformer_cls_names_to_wrap:
                     transformer_cls = get_module_class_from_name(model, layer_class)
                     if transformer_cls is None:
